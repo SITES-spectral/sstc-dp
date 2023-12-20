@@ -6,3 +6,4 @@
 - `get_stations_geodataframe()`
   
 ## [v0.1.2]
+- quick fix for `get_sites_stations_list()`
