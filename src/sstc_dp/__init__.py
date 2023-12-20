@@ -5,6 +5,7 @@ import pandas as pd
 
 
 
+
 def get_sites_stations_list(inactive_stations_ids=["TRS"])->List[Dict]:
     """
     Retrieves a list of stations from the ICOS-CP API and compiles their details into a list of dictionaries.
@@ -27,7 +28,14 @@ def get_sites_stations_list(inactive_stations_ids=["TRS"])->List[Dict]:
         - It's important to handle potential errors to prevent the application from crashing due to unforeseen issues.
     """
     stations = []
-
+    sstc = {
+                'id': 'SSTC', 
+                "name": 'SITES Spectral Thematic Center', 
+                'status': 'active', 
+                "latitude": 55.7119, 
+                "longitude": 13.2107, 
+                "uri": "https://www.fieldsites.se/en-GB/sites-thematic-programs/sites-spectral-32634403"
+            }
     try:
         # Attempt to get the list of stations from the ICOS-CP API
         station_data = sites.meta.list_stations()
@@ -56,7 +64,9 @@ def get_sites_stations_list(inactive_stations_ids=["TRS"])->List[Dict]:
             # Optionally log the error or handle it as needed
             print(f"Data format error: {ve}")
             continue  # Skip this station and continue with the next one
-
+    
+    stations.append(sstc)  # Add the SSTC station to the list
+    
     return stations
 
 
