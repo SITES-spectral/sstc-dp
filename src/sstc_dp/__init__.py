@@ -1,11 +1,11 @@
 import icoscp_core.sites as sites
-from typing import List, Dict, Union
+from typing import List, Dict
 import geopandas as gpd
 import pandas as pd
-from shapely import Point
 
 
-def get_sites_stations_list(inactive_stations_ids=["TRS"])->List(Dict[str, Union[str, int, float]]):
+
+def get_sites_stations_list(inactive_stations_ids=["TRS"])->List[Dict]:
     """
     Retrieves a list of stations from the ICOS-CP API and compiles their details into a list of dictionaries.
     The function allows specifying which stations should be marked as 'inactive'.
